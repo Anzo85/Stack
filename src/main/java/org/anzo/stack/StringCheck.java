@@ -10,7 +10,7 @@ public class StringCheck {
 
         String open = "([{";
         String close = ")]}";
-        Stack stack = new Stack();
+        Stack<Character> stack = new Stack();
 
         for (int i = 0; i < string.length(); i++) {
             for (int j = 0; j < open.length(); j++) {
@@ -22,9 +22,9 @@ public class StringCheck {
             for (int j = 0; j < close.length(); j++) {
                 if (string.charAt(i) == close.charAt(j)) {
                     if (!stack.isEmpty()) {
-                        if ((stack.peek() != (Object) '(')
-                                && (stack.peek() == (Object) (char)
-                                ((int) close.charAt(j) - 2))) {
+                        if ((stack.peek() != '(')
+                                && (stack.peek() ==
+                                (close.charAt(j) - 2))) {
                             stack.pop();
                         } else if (stack.peek() == (Object) '(' && close.charAt(j) == ')') {
                             stack.pop();
