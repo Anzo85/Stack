@@ -26,7 +26,7 @@ public class StringCheck {
                                 && (stack.peek() ==
                                 (close.charAt(j) - 2))) {
                             stack.pop();
-                        } else if (stack.peek() == (Object) '(' && close.charAt(j) == ')') {
+                        } else if (stack.peek() == '(' && close.charAt(j) == ')') {
                             stack.pop();
                         } else {
                             return false;
