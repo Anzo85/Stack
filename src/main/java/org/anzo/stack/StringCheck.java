@@ -21,16 +21,28 @@ public class StringCheck {
 
             for (int j = 0; j < close.length(); j++) {
                 if (string.charAt(i) == close.charAt(j)) {
-                    stack.pop();
+                    if (!stack.isEmpty()) {
+                        if ((stack.peek() != (Object) '(')
+                                && (stack.peek() == (Object) (char)
+                                ((int) close.charAt(j) - 2))) {
+                            stack.pop();
+                        } else if (stack.peek() == (Object) '(' && close.charAt(j) == ')') {
+                            stack.pop();
+                        } else {
+                            return false;
+                        }
+                    }
                 }
             }
         }
-
         if (stack.isEmpty())
             return true;
-        else return false;
+        else {
 
+            return false;
+        }
     }
 
 
 }
+
